@@ -31,6 +31,7 @@ border-color:lightgrey;
 padding:10px;
 border-top-color:rgba(153, 50, 204,0.6);
 border-bottom-color:rgba(153, 50, 204,0.6);
+border-radius:3px;
 }
 
      body
@@ -154,9 +155,12 @@ border-bottom-color:rgba(153, 50, 204,0.6);
 %>
 </tbody>
 </table>
+<br><br><h3 id="catgr">IF YOU WANT TO KNOW HOW MUCH AMOUNT DO YOU SPENT ON EACH CATEGORY  THEN <a href="CategoryGraph.jsp">CLICK HERE</a></h3>
 <%	if(count==0) {%>
 	
  <script>
+ document.getElementById("catgr").style.display="none";
+
  document.getElementById("tbl").style.display="none";
  document.getElementById("ima").style.display="block";
  document.getElementById("meg").style.display="block";
@@ -197,5 +201,6 @@ window.location.href="ViewExpenses";
 
 </script>
 <%} %>
+<br><br><br><br>
 </body>
 </html>

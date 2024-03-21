@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.jsp.expensetracker.entity.Expense;
+import com.jsp.expensetracker.entity.UserRequest;
 
 public interface ExpenseService {
 
@@ -19,4 +20,9 @@ public interface ExpenseService {
 List<Expense> filterExpenseByCategory(String category, int userId);
 	
 	List<Expense> filterExpenseByAmountRange(int start, int end, int userId);
+	int addingRequest(int userId,String username,String email);
+	
+	List<UserRequest> ViewUserRequest() ;
+
+
 }

@@ -105,7 +105,7 @@
             letter-spacing: 2px;
             text-align:center;
             position:absolute;
-            top:61%;
+            top:56%;
             left:35%;
             color:blueviolet;
             text-shadow:1px 1px grey;
@@ -113,7 +113,7 @@
      #tqemj{
     	
             position:absolute;
-            top:69%;
+            top:60%;
             left:48%;
            display:none;
     }
@@ -127,6 +127,7 @@
             color:red;
             text-shadow:1px 1px grey;
     }
+   
 </style>
 </head>
 <body>
@@ -136,6 +137,7 @@
  %>
  <script>alert('<%=feemess%>')</script>
  <%} %>
+ 
  
 <div class="header">
         <a href="index.jsp"> <img src="media/expenses-removebg-preview (1).png" style="height:47px;width:47px;padding:22px;margin-left:33px;"> </a>    <b>Spring Expenses Tracker</b>
@@ -148,21 +150,25 @@
 </center>
  <div id="maincont">
         
-    <center>
+    <center><form  action="Rating" method="post">
  <span onclick="fill(1)"> &#9734;    </span>
   <span onclick="fill(2)"> &#9734;    </span>
   <span onclick="fill(3)"> &#9734;    </span>
   <span onclick="fill(4)"> &#9734;    </span>
   <span onclick="fill(5)"> &#9734;    </span>
+  <input type="text"  id="rate" name="rateVal" hidden=true required><br><br>
+    <input type="submit" style="background-color:blueviolet;color:white;border-radius:100px;border-style:none;height:30px;width:140px;font-size:medium;display:none;" id="sbt"></form>
+  
 </center>
-</div><h3 id="tqmsg"></h3>
+</div><br><h3 id="tqmsg"></h3>
 <h5 id="vrdt"></h5>
-<img  id="tqemj" src="media/hand-shake.png" height="77px" width="70px">
+<img  id="tqemj" src="media/hand-shake.png" height="77px" width="70px"><br><br>
 
 <script>
 
 function fill(input)
 {
+	document.getElementById("rate").value=input;
 	document.getElementById("que").style.display="none";
     var elements=document.getElementsByTagName("span");
 
@@ -170,41 +176,64 @@ function fill(input)
     {
         elements[v].innerHTML='&#9733;';
     }
-    document.getElementById("maincont").style.height='90px';
+   // document.getElementById("maincont").style.height='90px';
+document.getElementById("sbt").style.display="block";
+	document.getElementById("display").innerHTML='Your  rating is '+input+'  of '+5;
 
-    document.getElementById("display").innerHTML='Your  rating is '+input+'  of '+5;
-    document.getElementById("tqmsg").innerHTML='THANKS FOR THE RATING !!';
-    document.getElementById("tqemj").style.display="block";
-
-    showEmoji(input);
+	showEmoji(input);	
     
 }
 function showEmoji(input)
 {
 if(input==1)
 	{
+	
+
 	document.getElementById("vrdt").innerHTML=' &nbsp;&nbsp;&nbsp;   POOR   &#128542;&#128542;';
 	}
 else if(input==2)
 {
-document.getElementById("vrdt").innerHTML='&nbsp;&nbsp;AVERAGE   &#128578;&#128578;';
+	document.getElementById("vrdt").innerHTML='&nbsp;&nbsp;AVERAGE   &#128578;&#128578;';
 }
 else if(input==3)
 {
+	
 document.getElementById("vrdt").innerHTML='&nbsp;&nbsp;GOOD   &#128519;&#128519;&#128519;';
 }
 else if(input==4 )
 {
+	
 document.getElementById("vrdt").innerHTML='VERY GOOD   &#128515;&#128515;';
 }
 else if(input==5)
 {
+	
 document.getElementById("vrdt").innerHTML='OUTSTANDING   &#128077;&#128077;';
 }
 
 	}
 
-	
+
+
 </script>
+
+
+
+ <%Integer numberObj=(Integer) request.getAttribute("number");
+ if(numberObj!=null ){
+	    int number = numberObj.intValue();
+System.out.println("num value "+number);
+ %>
+<script>
+alert("thanks for rating");
+document.getElementById("que").style.display="none";
+document.querySelector("#maincont").style.display="none";
+document.getElementById("tqmsg").innerHTML='THANKS FOR THE RATING !!';
+document.getElementById("tqemj").style.display="block";
+
+</script>
+
+<%} %>
+
 </body>
 </html>

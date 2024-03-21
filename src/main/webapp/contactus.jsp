@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
         <%@page import="com.jsp.expensetracker.entity.User" %>
+            <%@page import="com.jsp.expensetracker.service.*" %>
     
 <!DOCTYPE html>
 <html>
@@ -140,8 +141,18 @@ animation-iteration-count: 1;
 </style>
 </head>
 <body>
-<%    User user=(User) session.getAttribute("userInfo");
- %>
+<%   
+//User user=(User) session.getAttribute("userInfo");
+
+
+User userInfo=(User)session.getAttribute("userInfo"); 
+//System.out.println("checking in sending mail"+userInfo);
+UserService userService=new UserServieImpl();
+User user=userService.findUserById(userInfo.getUserId());
+System.out.println(user+"checking");
+%>
+
+ 
 <div class="header">
         <a href="index.jsp"> <img src="media/expenses-removebg-preview (1).png" style="height:47px;width:47px;padding:22px;margin-left:33px;"> </a>    <b>Spring Expenses Tracker</b>
         <a href="home.jsp" id="dd"><i class="fa-solid fa-home"></i>&nbsp;Home</a>

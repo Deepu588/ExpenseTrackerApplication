@@ -23,21 +23,13 @@
             left:8%;
             font-size: 25px;
         }
-        body
-        {
-            background-image: url("bg.png");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            background-size:cover;
-        }
         #parent
         {
            margin-left:70px;
            margin-top:40px;
            height:545px;
            width:90%; 
-           background-image: linear-gradient(to bottom left,rgb(255, 170, 0),yellow,rgb(174, 46, 46),rgba(0, 0, 255, 0.523));
+            background-color: rgba(153, 50, 204,0.4);
 
         }
         .child1

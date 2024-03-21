@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.jsp.expensetracker.entity.Expense;
+import com.jsp.expensetracker.entity.UserRequest;
 
 public interface ExpenseDao {
 
@@ -14,6 +15,10 @@ public interface ExpenseDao {
 	
 	int updateExpenseDetails(Expense expense,int expenseId) throws Exception;
 	
-	
+	List<UserRequest> ViewUserRequest() throws Exception;
+
 	double caluclateTotalExpenses(Date startDate,Date endDate,int userId) throws Exception;
+	
+	int addingRequest(int userId,String username,String email) throws Exception;
+
 }

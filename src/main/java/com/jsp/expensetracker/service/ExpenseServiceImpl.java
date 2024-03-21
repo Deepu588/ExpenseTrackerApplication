@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import com.jsp.expensetracker.dao.ExpenseDao;
 import com.jsp.expensetracker.dao.expenseDaoImpl;
 import com.jsp.expensetracker.entity.Expense;
+import com.jsp.expensetracker.entity.UserRequest;
 
 public class ExpenseServiceImpl implements ExpenseService{
 
@@ -138,6 +139,40 @@ public class ExpenseServiceImpl implements ExpenseService{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+
+
+
+	@Override
+	public int addingRequest(int userId, String username, String email) {
+		// TODO Auto-generated method stub
+		
+		try {
+			return expenseDao.addingRequest(userId, username, email);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+
+
+
+	@Override
+	public List<UserRequest> ViewUserRequest() {
+		// TODO Auto-generated method stub
+		try {
+		return	expenseDao.ViewUserRequest();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 	}
 	

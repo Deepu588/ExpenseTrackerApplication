@@ -2,8 +2,11 @@ package com.jsp.expensetracker.service;
 
 
 import java.io.InputStream;
+import java.sql.ResultSet;
+import java.util.List;
 
 import com.jsp.expensetracker.dao.UserDao;
+import com.jsp.expensetracker.entity.ContactUs;
 import com.jsp.expensetracker.entity.User;
 import com.jsp.expensetracker.entity.UserDaoImpl;
 
@@ -119,4 +122,93 @@ public byte[] getUserProfileImage(int userId) {
 	}
 	return null;
 }
+
+@Override
+public int addRating(int number) {
+	// TODO Auto-generated method stub
+	
+	try {
+		return userdao.addRating(number);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return 0;
+}
+
+@Override
+public int fetchRating(int number) {
+	// TODO Auto-generated method stub
+	
+	try {
+		return userdao.fetchRating(number);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return 0;
+}
+
+@Override
+public List<ContactUs> getFeedback() {
+	// TODO Auto-generated method stub
+	
+	try {
+		return userdao.getFeedback();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
+	return null;
+}
+
+@Override
+public int deleteFeedback(int sno) {
+	// TODO Auto-generated method stub
+	
+	try {
+		return userdao.deleteContact(sno);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	return 0;
+}
+
+@Override
+public int deleteUserById(int id) {
+	// TODO Auto-generated method stub
+	
+	try {
+		return userdao.deleteUserById(id);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	return 0;
+}
+
+@Override
+public int deleteUserRequest(int id) {
+	// TODO Auto-generated method stub
+	try {
+		return userdao.deleteUserRequest(id);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	return 0;
+}
+
+
+
+
 }

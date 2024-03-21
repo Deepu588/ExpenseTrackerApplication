@@ -50,8 +50,8 @@
 }
 #ali .lk
 {
-    width:140px;
-    height:30px;
+    width:170px;
+    height:33px;
     border-style:none;
     background-color:black;
     color:white;
@@ -75,12 +75,15 @@
         <a href="index.jsp"> <img src="media/expenses-removebg-preview (1).png" style="height:47px;width:47px;padding:22px;margin-left:33px;"> </a>    <b id="hed">Spring Expenses Tracker</b>
 <img src="media/setting.png" height="45px" width="45px" style="position:absolute;top:4%;right:4%;" onmouseover="showing()" id="ima">
  <div id="ali">
-<a href="EditProfile.jsp"><button class="lk">Edit Profile</button></a>
-<a href="About.jsp"><button class="lk">About</button></a>
-<a href="contactus.jsp"><button class="lk">Contact Us</button></a>
-<a href="rating.jsp"><button class="lk">Rate Us</button></a>
+<a href="EditProfile.jsp"><button class="lk">&#9998; Edit Profile</button></a>
+<a href="About.jsp"><button class="lk">&#9432; About</button></a>
+<a href="contactus.jsp"><button class="lk">&#128231; Contact Us</button></a>
+<a href="rating.jsp"><button class="lk">&#10032; Rate Us</button></a>
+<a href="Savings.jsp"><button class="lk">&#8377; Your Savings</button></a>
+<a href="SendExpensesRequest.jsp"><button class="lk">&#10066; Send My Expenses</button></a>
+<a href="ThisWeekExpenses.jsp"><button class="lk">&#10066; This Week Expenses</button></a>
 
-<a href="Logout"><button class="lk">Logout</button></a>
+<a href="Logout"><button class="lk">&#11025; Logout</button></a>
 </div>
  
   </div>  <div class="bpart">
@@ -109,13 +112,22 @@ String message=(String) request.getAttribute("msg");
     function showing()
     {
         document.getElementById("ali").style.display="block";
-        setTimeout(hide,4000);
+        setTimeout(hide,6000);
     }
     function hide()
     {
         document.getElementById("ali").style.display="none";
     }
 </script>
-    
+   
+   
+   
+   <%   String cfmess=(String) request.getAttribute("cfm"); 
+if(cfmess!=null){
+%>
+<script type="text/javascript">
+alert('<%=cfmess%>')
+</script>
+<%} %> 
 </body>
 </html>

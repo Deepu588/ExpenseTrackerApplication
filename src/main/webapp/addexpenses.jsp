@@ -8,6 +8,19 @@
     <script src="https://kit.fontawesome.com/c51795afff.js" crossorigin="anonymous"></script>
     <link rel="icon" href="media/expenses-removebg-preview (1).png">
     <link rel="stylesheet" href="addexpenses.css">
+    <style>
+            #parent
+        {
+           margin-left:70px;
+           margin-top:40px;
+           height:545px;
+           width:90%; 
+            background-color: rgba(153, 50, 204,0.4);
+
+        }
+    
+    
+    </style>
 </head>
 <body>
  <div class="header">
@@ -53,7 +66,7 @@
     </center>
 </form>
 </div>
-</div>
-</div>
+</div></div>
+
 </body>
 </html>

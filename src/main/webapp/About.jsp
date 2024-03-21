@@ -52,14 +52,63 @@
         .abbox{
         height:500px;
         width:830px;
-        background-image:linear-gradient(to bottom left,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        background-image:linear-gradient(to top ,gold,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
         margin-left:365px;
         padding-left:25px;
         border-radius:10px;
         z-index:2;
         box-shadow:5px 6px 5px 4px white;
-		
+		animation-name:box;
+		animation-duration:10s;
+		animation-delay:1s;
+		animation-iteration-count:1;
         }
+        @keyframes box
+        {
+        
+        1%{
+                background-image:linear-gradient(to right,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        
+        
+        }
+        
+        20%
+        {
+                background-image:linear-gradient(to bottom right,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        
+        }
+        
+        40%
+        {
+        
+                background-image:linear-gradient(to top left,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        
+        }
+        
+        60%{
+        
+                background-image:linear-gradient(to top right,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        
+        }
+        
+        
+        80%{
+        		        background-image:linear-gradient(to bottom left,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        		
+        
+        }
+        
+        99%{
+        
+                background-image:linear-gradient(to  left,gold,yellow,lightgreen,lightgrey,rgba(255,165,0,0.5),pink,bisque,lightblue);
+        
+        }
+        
+        }
+        
+        
+        
+        
         .abbox h3{
         letter-spacing:7px;
         color:red;
@@ -72,6 +121,7 @@
         font-size:22px;
         word-spacing:3px;
         font-weight:normal;
+        text-shadow:1px 0px white;
         
         }
 </style>

@@ -224,7 +224,7 @@ System.out.println("vte "+listOfExpenses);
 <%} %>
 
 
-<br><br><center><button id="bck"><a href="ViewExpenses" style="text-decoration:none;color:white;"><i class="fa fa-solid fa-eye" type="button"></i> VIEW ALL EXPENSES</a></button></center>
+<br><br><center><button id="bck"><a href="ViewExpenses" style="text-decoration:none;color:white;"><i class="fa fa-solid fa-eye" type="button"></i> VIEW ALL EXPENSES</a></button></center><br><br><br>
 
 <%
 	String alm=	(String) request.getAttribute("mess");

@@ -1,13 +1,15 @@
 package com.jsp.expensetracker.entity;
 
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jsp.expensetracker.dao.UserDao;
 import com.jsp.expensetracker.utility.SingletonClass;
-import java.sql.Blob;
 public class UserDaoImpl implements UserDao {
 
 	
@@ -51,9 +53,12 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		
 		String query="select * from user where username=? and password=?";
+		//create a platform
 		pstmt=connect.prepareStatement(query);
+		
 		pstmt.setString(1,username);
 		pstmt.setString(2,password);
+		
 		ResultSet rs=pstmt.executeQuery();
 		if(rs.isBeforeFirst())
 		{
@@ -201,6 +206,102 @@ public class UserDaoImpl implements UserDao {
 			}
 		}
 		return null;
+	}
+	
+	
+	
+	@Override
+	public int addRating(int number) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="insert into rating (ratevalue) values (?)";
+		pstmt=connect.prepareStatement(query);
+		
+		pstmt.setInt(1, number);
+		return pstmt.executeUpdate();
+	}
+	@Override
+	public int fetchRating(int number) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="select * from rating where ratevalue=?";
+pstmt=connect.prepareStatement(query);
+		
+		pstmt.setInt(1, number);
+		ResultSet rs=pstmt.executeQuery();
+		int count=0;
+		if(rs.isBeforeFirst())
+		{
+			while(rs.next()) {
+			count++;}
+		}
+		return count;
+	}
+	@Override
+	public List<ContactUs> getFeedback() throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="select * from contactus";
+		pstmt=connect.prepareStatement(query);
+		List<ContactUs> feedback=new ArrayList<ContactUs>();
+		ResultSet res=pstmt.executeQuery();
+
+		if(res.isBeforeFirst())
+		{
+			while(res.next())
+			{
+				ContactUs contact=new ContactUs();
+				contact.setSno(res.getInt("sno"));
+				contact.setUsername(res.getString("username"));
+				contact.setEmail(res.getString("email"));
+				contact.setComment(res.getString("comment"));
+				
+				feedback.add(contact);
+			}
+		}
+		
+		
+		return feedback;
+	}
+	@Override
+	public int deleteContact(int sno) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="delete from contactus where sno=?";
+		pstmt=connect.prepareStatement(query);
+		
+		pstmt.setInt(1,sno);
+		
+		int status= pstmt.executeUpdate();
+		
+		System.out.println(status+" delete");
+		return status;
+	}
+	
+	
+	
+	@Override
+	public int deleteUserById(int id) throws Exception {
+		// TODO Auto-generated method stub
+		String query="delete from user where userId=?";
+		pstmt=connect.prepareStatement(query);
+		pstmt.setInt(1, id);
+		
+		int result=pstmt.executeUpdate();
+		
+		return result;
+	}
+	
+	
+	@Override
+	public int deleteUserRequest(int id) throws Exception {
+		String query="delete from sendexpenses where userid=?";
+		pstmt=connect.prepareStatement(query);
+		pstmt.setInt(1, id);
+		
+		int result=pstmt.executeUpdate();
+		
+		return result;
 	}
 
 	

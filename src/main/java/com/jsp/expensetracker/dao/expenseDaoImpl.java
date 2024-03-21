@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jsp.expensetracker.entity.Expense;
+import com.jsp.expensetracker.entity.UserRequest;
 import com.jsp.expensetracker.utility.SingletonClass;
 
 public class expenseDaoImpl implements ExpenseDao{
@@ -150,6 +151,47 @@ public class expenseDaoImpl implements ExpenseDao{
 			}
 		}
 		return sum;
+	}
+	
+	@Override
+	public int addingRequest(int userId, String username, String email) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="insert into sendexpenses(userid,username,email) values (?,?,?)";
+		ptsmt=connection.prepareStatement(query);
+
+		ptsmt.setInt(1, userId);
+		ptsmt.setString(2, username);
+		ptsmt.setString(3, email);
+		
+		int status=ptsmt.executeUpdate();
+		System.out.println("status of insertion "+status);
+		return status;
+	}
+	
+	
+	
+	@Override
+	public List<UserRequest> ViewUserRequest() throws Exception {
+		// TODO Auto-generated method stub
+		
+		String query="select * from sendexpenses";
+		ptsmt=connection.prepareStatement(query);
+	ResultSet rs=ptsmt.executeQuery();
+	List<UserRequest> userRequests=new ArrayList();
+	if(rs.isBeforeFirst())	
+	{
+		while(rs.next()) {
+			UserRequest req=new UserRequest();
+			req.setUserId(rs.getInt("userid"));
+			req.setUserName(rs.getString("username"));
+			req.setEmail(rs.getString("email"));
+			
+			userRequests.add(req);
+		}
+	}
+		System.out.println(userRequests);
+		return userRequests;
 	}
 	
 }

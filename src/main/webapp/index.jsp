@@ -72,6 +72,7 @@
     <img src="media/index_robot.gif" id="ima">
     
     
+    
     <div id="mt">
     					<i class="sm">Expense  Tracker simplify your personal
     					reimbursement management</i><br><br><br>

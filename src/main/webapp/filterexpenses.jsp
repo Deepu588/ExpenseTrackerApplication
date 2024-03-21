@@ -19,7 +19,7 @@
         <h3><i class="fa-solid fa-filter" style="color:grey;"></i>Filter Expenses</h3><br><br>
 <form method="get" action="FilterExpense">
     <label><h4>Select Date</h4></label><br>
-    <input type="date" required placeholder="dd-mm-yyyy" name="date">
+    <input type="date"  placeholder="dd-mm-yyyy" name="date">
     <br><br>
     <label><h4>Select Category</h4></label><br>
  <input type="text" class="form-control" list="sub" name="category">
